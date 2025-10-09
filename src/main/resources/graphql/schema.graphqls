@@ -1,0 +1,26 @@
+type GraphQlDemo {
+  id: ID
+  name: String
+  age: String
+}
+
+type Query {
+  getData: [GraphQlDemo]
+  getDataById (id:ID!): GraphQlDemo
+  findUserByNameSearch (name:String!): [GraphQlDemo]
+}
+
+input GraphQlDemoInput {
+  id: ID
+  name: String!
+  age: String!
+}
+
+
+type Mutation {
+  addData(id:ID,name: String!, age: String!): GraphQlDemo
+  deleteDataById (id:ID!): Boolean
+  addUser(input: GraphQlDemoInput): GraphQlDemo
+  updateUser(input: GraphQlDemoInput): GraphQlDemo
+}
+
